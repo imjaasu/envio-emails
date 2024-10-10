@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const inputEmail = document.querySelector('#email');
     const inputAsunto = document.querySelector('#asunto');
     const inputMensaje = document.querySelector('#mensaje');
+    const formulario = document.querySelector('#formulario');
 
     // console.log(inputEmail);
     // console.log(inputAsunto);
@@ -15,7 +16,21 @@ document.addEventListener('DOMContentLoaded', function(){
     inputMensaje.addEventListener('blur', validar);
 
     function validar (e){
-        console.log(e.target.value);
+        if(e.target.value.trim() === ''){
+            mostrarAlerta();
+        } else{
+
+        }
+    }
+
+    function mostrarAlerta(){
+        // Generar alerta en HTML
+        const error = document.createElement('P');
+        error.textContent = 'Hubo un error';
+        error.classList.add('bg-red-600', 'text-white', 'p-2', 'text-center');
+
+        // Inyectar el error al formulario
+        formulario.appendChild(error);
     }
 });
 
